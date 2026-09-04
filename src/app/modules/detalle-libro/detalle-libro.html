@@ -16,40 +16,36 @@
             <span>Regresar</span>
         </button>
 
-    <!-- Botones -->
 
-<div class="flex items-center gap-3">
+        <!-- Botones -->
+        <div class="flex items-center gap-3">
 
-    <!-- Favorito -->
-    <button
-        type="button"
-        (click)="cambiarFavorito()"
-        class="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-amber-400 hover:text-amber-400"
-    >
-        <span class="text-xl">
-            {{ favorito ? '★' : '☆' }}
-        </span>
+            <!-- Favorito -->
+            <button
+                type="button"
+                (click)="cambiarFavorito()"
+                class="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-amber-400 hover:text-amber-400"
+            >
+                <span class="text-xl">
+                    {{ favorito ? '★' : '☆' }}
+                </span>
 
-        <span>
-            Favorito
-        </span>
-    </button>
+                <span>Favorito</span>
+            </button>
 
-    <!-- Leer libro -->
-    <a
-        [routerLink]="['/admin/leer-libro', libro.id]"
-        class="flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500"
-    >
-        <span class="text-xl">📖</span>
 
-        <span>
-            Leer libro
-        </span>
-    </a>
+            <!-- Leer libro -->
+            <a
+                [routerLink]="['/admin/leer-libro', libro?.id]"
+                class="flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500"
+            >
+                <span class="text-xl">📖</span>
+                <span>Leer libro</span>
+            </a>
 
-</div>
+        </div>
 
-</div>    
+    </div>
 
 
     <!-- ===================================================== -->
@@ -65,10 +61,11 @@
         <h1 class="text-3xl font-bold md:text-4xl">
             {{ libro?.title }}
         </h1>
-        
+
         <p class="mt-2 text-slate-400">
             {{ libro?.author }}
         </p>
+
     </section>
 
 
@@ -88,12 +85,12 @@
             <div class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-xl">
 
                 <div class="aspect-[3/4] overflow-hidden bg-slate-800">
-                    
-                <img
-                    [src]="libro?.fileUrl"
-                    [alt]="libro?.title"
-                    class="h-full w-full object-cover"
-                    /> 
+
+                    <img
+                        [src]="libro?.coverUrl"
+                        [alt]="libro?.title"
+                        class="h-full w-full object-cover"
+                    />
 
                 </div>
 
@@ -119,21 +116,48 @@
 
 
                     <!-- Categoría -->
-
                     <div class="border-b border-slate-800 pb-4">
 
                         <p class="text-xs uppercase tracking-wide text-slate-500">
                             Categoría
                         </p>
+
                         <p class="mt-1 font-medium text-slate-200">
-                            {{ libro?.categoryId }}
+                            {{ libro?.category }}
+                        </p>
+
+                    </div>
+
+
+                    <!-- Año -->
+                    <div class="border-b border-slate-800 pb-4">
+
+                        <p class="text-xs uppercase tracking-wide text-slate-500">
+                            Año
+                        </p>
+
+                        <p class="mt-1 font-medium text-slate-200">
+                            {{ libro?.year }}
+                        </p>
+
+                    </div>
+
+
+                    <!-- ISBN -->
+                    <div class="border-b border-slate-800 pb-4">
+
+                        <p class="text-xs uppercase tracking-wide text-slate-500">
+                            ISBN
+                        </p>
+
+                        <p class="mt-1 font-medium text-slate-200">
+                            {{ libro?.isbn }}
                         </p>
 
                     </div>
 
 
                     <!-- Formato -->
-
                     <div>
 
                         <p class="text-xs uppercase tracking-wide text-slate-500">
@@ -141,160 +165,7 @@
                         </p>
 
                         <p class="mt-1 font-medium text-slate-200">
-                            {{ libro?.fileUrl ? 'Disponible' : 'No disponible' }}
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-<div class="min-h-screen bg-slate-950 p-4 text-white md:p-6">
-
-    <!-- ===================================================== -->
-    <!-- ENCABEZADO -->
-    <!-- ===================================================== -->
-
-    <div class="mb-8 flex items-center justify-between">
-
-        <!-- Regresar -->
-        <button
-            type="button"
-            [routerLink]="['/admin/inicio']"
-            class="flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-800 hover:text-white"
-        >
-            <span class="text-xl">←</span>
-            <span>Regresar</span>
-        </button>
-
-    <!-- Botones -->
-
-<div class="flex items-center gap-3">
-
-    <!-- Favorito -->
-    <button
-        type="button"
-        (click)="cambiarFavorito()"
-        class="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-amber-400 hover:text-amber-400"
-    >
-        <span class="text-xl">
-            {{ favorito ? '★' : '☆' }}
-        </span>
-
-        <span>
-            Favorito
-        </span>
-    </button>
-
-    <!-- Leer libro -->
-    <a
-        [routerLink]="['/admin/leer-libro', libro.id]"
-        class="flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500"
-    >
-        <span class="text-xl">📖</span>
-
-        <span>
-            Leer libro
-        </span>
-    </a>
-
-</div>
-
-</div>    
-
-
-    <!-- ===================================================== -->
-    <!-- TÍTULO -->
-    <!-- ===================================================== -->
-
-    <section class="mb-8 text-center">
-
-        <p class="mb-2 text-sm font-medium uppercase tracking-widest text-blue-400">
-            Detalles del libro
-        </p>
-
-        <h1 class="text-3xl font-bold md:text-4xl">
-            {{ libro?.title }}
-        </h1>
-        
-        <p class="mt-2 text-slate-400">
-            {{ libro?.author }}
-        </p>
-    </section>
-
-
-    <!-- ===================================================== -->
-    <!-- CONTENIDO PRINCIPAL -->
-    <!-- ===================================================== -->
-
-    <section class="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-12">
-
-
-        <!-- ================================================= -->
-        <!-- PORTADA -->
-        <!-- ================================================= -->
-
-        <div class="lg:col-span-3">
-
-            <div class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-xl">
-
-                <div class="aspect-[3/4] overflow-hidden bg-slate-800">
-                    
-                <img 
-                    src="assets/images/portada-libro.jpg"
-                    [alt]="libro?.title"
-                    class="h-full w-full object-cover"
-                />
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================================================= -->
-        <!-- DETALLES -->
-        <!-- ================================================= -->
-
-        <div class="lg:col-span-4">
-
-            <div class="h-full rounded-2xl border border-slate-800 bg-slate-900 p-6 shadow-xl">
-
-                <h2 class="mb-5 text-xl font-bold">
-                    Información del libro
-                </h2>
-
-
-                <div class="space-y-5">
-
-
-                    <!-- Categoría -->
-
-                    <div class="border-b border-slate-800 pb-4">
-
-                        <p class="text-xs uppercase tracking-wide text-slate-500">
-                            Categoría
-                        </p>
-                        <p class="mt-1 font-medium text-slate-200">
-                            {{ libro?.categoryId }}
-                        </p>
-
-                    </div>
-
-
-                    <!-- Formato -->
-
-                    <div>
-
-                        <p class="text-xs uppercase tracking-wide text-slate-500">
-                            Formato
-                        </p>
-
-                        <p class="mt-1 font-medium text-slate-200">
-                            {{ libro?.fileUrl ? 'Disponible' : 'No disponible' }}
+                            {{ libro?.format }}
                         </p>
 
                     </div>
@@ -317,7 +188,7 @@
                 <div class="mb-5 flex items-center gap-3">
 
                     <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20 text-xl">
-                        
+                        📖
                     </div>
 
                     <h2 class="text-xl font-bold">
@@ -330,19 +201,8 @@
                 <div class="leading-7 text-slate-300">
 
                     <p>
-                        El contenido de este manual lo llevará a recorrer el proceso de producción y 
-                        preparación del café, desde su cultivo hasta la taza, lo que le permitirá tener una 
-                        visión global del cuidado y atención que desde el momento de su germinación,
-                        hasta el servicio, garantizan la calidad de una preparación perfecta.
+                        {{ libro?.description }}
                     </p>
-
-                    <p class="mt-4">
-                        Esta guía de aprendizaje, así como el DVD-Rom y la guía para el estudiante, hacen parte de 
-                        los medios educativos y comunicativos diseñados para apoyar la estrategia 
-                        presencial de capacitación a futuros baristas. Sin embargo, si este libro ha 
-                        llegado a sus manos y Usted se considera un apasionado o un entusiasta del 
-                        café, será un valioso medio de consulta y referencia, que le permitirá conocer 
-                        y profundizar más acerca de nuestro café.
 
                 </div>
 
